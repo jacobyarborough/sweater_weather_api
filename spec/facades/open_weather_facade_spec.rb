@@ -6,6 +6,6 @@ RSpec.describe 'OpenWeather Facade' do
   it '.get_weather', :vcr do 
     response = OpenWeatherFacade.get_weather(lat, lng)
 
-    expect(response).to be_a(Hash)
+    expect(response).to be_a(Weather)
   end 
 end 

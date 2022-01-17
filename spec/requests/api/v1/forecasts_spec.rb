@@ -11,7 +11,7 @@ RSpec.describe "Forecasts API", type: :request do
         forecast = JSON.parse(response.body, symbolize_names: :true)[:data]
 
         expect(forecast).not_to be_empty
-        expect(forecast[:id]).to eq(null)
+        expect(forecast[:id]).to eq(nil)
         expect(forecast[:type]).to eq('forecast')
         expect(forecast[:attributes]).to be_a(Hash)
         expect(forecast[:attributes].count).to eq(3)
@@ -75,6 +75,10 @@ RSpec.describe "Forecasts API", type: :request do
           expect(day).not_to have_key(:wind_gust)
           expect(day).not_to have_key(:id)
           expect(day).not_to have_key(:main)
+          expect(day).not_to have_key(:moonrise)
+          expect(day).not_to have_key(:moonset)
+          expect(day).not_to have_key(:moon_phase)
+          expect(day).not_to have_key(:pop)
         end 
 
         expect(forecast[:attributes]).to have_key(:hourly_weather)
