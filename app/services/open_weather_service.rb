@@ -1,7 +1,7 @@
 class OpenWeatherService
   class << self
     def get_weather_forecast(lat, lng)
-      response = conn.get("/data/2.5/onecall?lat=#{lat}&lon=#{lng}&exclude=minutely,alerts")
+      response = conn.get("/data/2.5/onecall?lat=#{lat}&lon=#{lng}&exclude=minutely,alerts&units=imperial")
       parse_data(response)
     end 
 

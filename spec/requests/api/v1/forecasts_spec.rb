@@ -4,7 +4,7 @@ RSpec.describe "Forecasts API", type: :request do
   let(:location) { 'denver, co' }
 
   describe "GET /forecast" do
-    before { get "/forecast?location=#{location}" }
+    before { get "/api/v1/forecast?location=#{location}" }
 
     context 'when the request is valid' do 
       it 'returns the weather forecast for denver' do 
@@ -13,6 +13,7 @@ RSpec.describe "Forecasts API", type: :request do
         expect(forecast).not_to be_empty
         expect(forecast[:id]).to eq(null)
         expect(forecast[:type]).to eq('forecast')
+        expect(forecast[:attributes]).to be_a(Hash)
         expect(forecast[:attributes].count).to eq(3)
         expect(forecast[:attributes]).not_to have_key(:minutely)
         expect(forecast[:attributes]).not_to have_key(:alerts)
@@ -83,7 +84,7 @@ RSpec.describe "Forecasts API", type: :request do
           expect(hour).to have_key(:time) 
           expect(hour[:time]).to be_a(String)
           expect(hour).to have_key(:temperature) 
-          expect(hour[:temperature).to be_a(Float)
+          expect(hour[:temperature]).to be_a(Float)
           expect(hour).to have_key(:conditions) 
           expect(hour[:conditions]).to be_a(String)
           expect(hour).to have_key(:icon) 
