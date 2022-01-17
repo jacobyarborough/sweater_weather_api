@@ -1,7 +1,9 @@
 class OpenWeatherFacade
   class << self 
     def get_weather(lat, lng)
-      OpenWeatherService.get_weather_forecast(lat, lng)
+      weather_data = OpenWeatherService.get_weather_forecast(lat, lng)
+      binding.pry
+      Weather.new(weather_data)
     end 
   end 
 end 

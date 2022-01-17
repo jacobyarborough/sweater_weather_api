@@ -21,8 +21,6 @@ RSpec.describe 'OpenWeather Service' do
       expect(response[:current]).to be_a(Hash)
       expect(response[:current]).to have_key(:dt)
       expect(response[:current][:dt]).to be_an(Integer)
-      expect(response[:current]).to have_key(:dt)
-      expect(response[:current][:dt]).to be_an(Integer)
       expect(response[:current]).to have_key(:sunrise)
       expect(response[:current][:sunrise]).to be_an(Integer)
       expect(response[:current]).to have_key(:sunset)
