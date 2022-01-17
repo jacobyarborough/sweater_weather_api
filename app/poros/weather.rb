@@ -15,9 +15,9 @@ class Weather
 
   def current_weather_func(data)
     current_weather_hash = {}
-    current_weather_hash[:datetime] = data[:current][:dt]
-    current_weather_hash[:sunrise] = data[:current][:sunrise]
-    current_weather_hash[:sunset] = data[:current][:sunset]
+    current_weather_hash[:datetime] = Time.at(data[:current][:dt]).to_s
+    current_weather_hash[:sunrise] = Time.at(data[:current][:sunrise]).to_s
+    current_weather_hash[:sunset] = Time.at(data[:current][:sunset]).to_s
     current_weather_hash[:temperature] = data[:current][:temp]
     current_weather_hash[:feels_like] = data[:current][:feels_like]
     current_weather_hash[:humidity] = data[:current][:humidity]
@@ -34,9 +34,9 @@ class Weather
     data[:daily].each do |day|
       if days <= 4
         day_hash = {}
-        day_hash[:date] = day[:dt]
-        day_hash[:sunrise] = day[:sunrise]
-        day_hash[:sunset] = day[:sunset]
+        day_hash[:date] = Time.at(day[:dt]).to_s
+        day_hash[:sunrise] = Time.at(day[:sunrise]).to_s
+        day_hash[:sunset] = Time.at(day[:sunset]).to_s
         day_hash[:max_temp] = day[:temp][:max]
         day_hash[:min_temp] = day[:temp][:min]
         day_hash[:conditions] = day[:weather][0][:description]
@@ -54,7 +54,7 @@ class Weather
     data[:hourly].each do |hour|
       if hours <=7
         hour_hash = {}
-        hour_hash[:time] = hour[:dt]
+        hour_hash[:time] = Time.at(hour[:dt]).to_s
         hour_hash[:temperature] = hour[:temp]
         hour_hash[:conditions] = hour[:weather][0][:description]
         hour_hash[:icon] = hour[:weather][0][:icon]
