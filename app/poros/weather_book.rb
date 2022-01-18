@@ -17,8 +17,8 @@ class WeatherBook
 
   def forecast_create(forecast)
     forecast_hash = {}
-    forecast_hash[:summary] = forecast[:data][:attributes][:current_weather][:conditions]
-    forecast_hash[:temperature] = "#{forecast[:data][:attributes][:current_weather][:temperature].round().to_i} F"
+    forecast_hash[:summary] = forecast.current_weather[:conditions]
+    forecast_hash[:temperature] = "#{forecast.current_weather[:temperature].round().to_i} F"
     forecast_hash
   end 
 
@@ -29,7 +29,7 @@ class WeatherBook
       if doc[:isbn]
         book_hash[:isbn] = doc[:isbn]
       else 
-        book_hash[:isb] = ['No ISBN found']
+        book_hash[:isbn] = ['No ISBN found']
       end 
       book_hash[:title] = doc[:title]
       book_hash[:publisher] = doc[:publisher]
