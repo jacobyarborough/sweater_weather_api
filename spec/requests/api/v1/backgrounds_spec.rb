@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Backgrounds", type: :request do
   let(:location) { 'denver, co' }
   describe "GET /background" do
-    before { get "/api/v1/background?location=#{location}" }
+    before { get "/api/v1/backgrounds?location=#{location}" }
 
     context 'when the request is valid' do 
       it 'returns an image url for the location' do 

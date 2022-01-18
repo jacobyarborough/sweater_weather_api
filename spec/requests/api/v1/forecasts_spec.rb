@@ -4,7 +4,7 @@ RSpec.describe "Forecasts", type: :request do
   let(:location) { 'denver, co' }
 
   describe "GET /forecast" do
-    before { get "/api/v1/forecast?location=#{location}" }
+    before { get "/api/v1/forecasts?location=#{location}" }
 
     context 'when the request is valid' do 
       it 'returns the weather forecast for location' do 
