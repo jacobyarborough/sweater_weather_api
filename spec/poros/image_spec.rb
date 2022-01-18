@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Image do
-  let(:location) = "Denver, CO"
+  let(:location) { "Denver, CO" }
   let(:image) { Image.new(image_data, location) }
 
   it 'has attributes' do 
