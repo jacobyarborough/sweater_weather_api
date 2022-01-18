@@ -118,7 +118,7 @@ RSpec.describe "Forecasts API", type: :request do
       end 
 
       it 'returns a not found message' do 
-        expect(response.body).to match(/Couldn't find location or location does not exist/)
+        expect(response.body).to match(/{\"error\":\"Can't find location or location was entered incorrectly\",\"status\":404}/)
       end
     end 
   end

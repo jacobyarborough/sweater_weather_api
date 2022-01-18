@@ -14,7 +14,7 @@ RSpec.describe Weather do
     expect(weather.current_weather[:temperature]).to eq(31.75)
     expect(weather.current_weather[:feels_like]).to eq(31.75)
     expect(weather.current_weather[:humidity]).to eq(57)
-    expect(weather.current_weather[:uvi]).to eq(0)
+    expect(weather.current_weather[:uvi]).to eq(0.0)
     expect(weather.current_weather[:visibility]).to eq(10000)
     expect(weather.current_weather[:conditions]).to eq("few clouds")
     expect(weather.current_weather[:icon]).to eq("02n")

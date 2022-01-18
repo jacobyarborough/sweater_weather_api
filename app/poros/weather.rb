@@ -18,10 +18,10 @@ class Weather
     current_weather_hash[:datetime] = Time.at(data[:current][:dt]).to_s
     current_weather_hash[:sunrise] = Time.at(data[:current][:sunrise]).to_s
     current_weather_hash[:sunset] = Time.at(data[:current][:sunset]).to_s
-    current_weather_hash[:temperature] = data[:current][:temp]
-    current_weather_hash[:feels_like] = data[:current][:feels_like]
+    current_weather_hash[:temperature] = data[:current][:temp].to_f
+    current_weather_hash[:feels_like] = data[:current][:feels_like].to_f
     current_weather_hash[:humidity] = data[:current][:humidity]
-    current_weather_hash[:uvi] = data[:current][:uvi]
+    current_weather_hash[:uvi] = data[:current][:uvi].to_f
     current_weather_hash[:visibility] = data[:current][:visibility]
     current_weather_hash[:conditions] = data[:current][:weather][0][:description]
     current_weather_hash[:icon] = data[:current][:weather][0][:icon]
@@ -37,8 +37,8 @@ class Weather
         day_hash[:date] = Time.at(day[:dt]).to_s
         day_hash[:sunrise] = Time.at(day[:sunrise]).to_s
         day_hash[:sunset] = Time.at(day[:sunset]).to_s
-        day_hash[:max_temp] = day[:temp][:max]
-        day_hash[:min_temp] = day[:temp][:min]
+        day_hash[:max_temp] = day[:temp][:max].to_f
+        day_hash[:min_temp] = day[:temp][:min].to_f
         day_hash[:conditions] = day[:weather][0][:description]
         day_hash[:icon] = day[:weather][0][:icon]
         daily_weather_array.push(day_hash)
@@ -55,7 +55,7 @@ class Weather
       if hours <=7
         hour_hash = {}
         hour_hash[:time] = Time.at(hour[:dt]).to_s
-        hour_hash[:temperature] = hour[:temp]
+        hour_hash[:temperature] = hour[:temp].to_f
         hour_hash[:conditions] = hour[:weather][0][:description]
         hour_hash[:icon] = hour[:weather][0][:icon]
         hourly_weather_array.push(hour_hash)
