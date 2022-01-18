@@ -6,19 +6,19 @@ class WeatherBook
               :total_books_found,
               :books
 
-  def initialize(forecast, books, location)
+  def initialize(weather_info, books, location)
     @id
     @type = 'books'
     @destination = location
-    @forecast = forecast_create(forecast)
+    @forecast = forecast_create(weather_info)
     @total_books_found = books[:numFound]
     @books = book_create(books)
   end 
 
-  def forecast_create(forecast)
+  def forecast_create(weather_info)
     forecast_hash = {}
-    forecast_hash[:summary] = forecast.current_weather[:conditions]
-    forecast_hash[:temperature] = "#{forecast.current_weather[:temperature].round().to_i} F"
+    forecast_hash[:summary] = weather_info.current_weather[:conditions]
+    forecast_hash[:temperature] = "#{weather_info.current_weather[:temperature].round().to_i} F"
     forecast_hash
   end 
 
