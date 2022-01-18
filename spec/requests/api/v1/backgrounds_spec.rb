@@ -25,15 +25,18 @@ RSpec.describe "Backgrounds", type: :request do
         expect(image_hash[:attributes][:image][:credit]).to be_a(Hash)
         expect(image_hash[:attributes][:image][:credit]).to have_key(:source)
         expect(image_hash[:attributes][:image][:credit][:source]).to be_a(String)
-        expect(image_hash[:attributes][:image][:credit]).to have_key(:author)
-        expect(image_hash[:attributes][:image][:credit][:author]).to be_a(String)
+        expect(image_hash[:attributes][:image][:credit]).to have_key(:author_link)
+        expect(image_hash[:attributes][:image][:credit][:author_link]).to be_a(String)
+        expect(image_hash[:attributes][:image][:credit]).to have_key(:author_name)
+        expect(image_hash[:attributes][:image][:credit][:author_name]).to be_a(String)
       end
 
       it 'returns status code 200' do 
         expect(response).to be_successful
         expect(response).to have_http_status(200)
       end 
-
+    end 
+    
     context 'the request is invalid' do 
       let(:location) { ' ' }
 
