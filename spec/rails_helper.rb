@@ -999,10 +999,10 @@ r humans. I love you.",
     :tags=>[{:type=>"search", :title=>"denver"}, {:type=>"search", :title=>"co"}, {:type=>"search", :title=>"usa"}]}]}
 end 
 
-def forecast
+def forecast_response
   {
     "data": {
-        "id": null,
+        "id": nil,
         "type": "forecast",
         "attributes": {
             "current_weather": {

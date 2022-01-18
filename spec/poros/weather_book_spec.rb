@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe WeatherBook do
   let(:location) { "Denver, CO" }
-  let(:weather_books) { WeatherBook.new(forecast, books, location) }
+  let(:weather_books) { WeatherBook.new(forecast_response, books, location) }
 
   it 'has attributes' do 
     expect(weather_books.id).to eq(nil)
