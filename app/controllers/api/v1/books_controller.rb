@@ -1,4 +1,4 @@
-class Api::V1::LocationBooksController < ApplicationController 
+class Api::V1::BooksController < ApplicationController 
   def index 
     coordinates = MapquestFacade.get_location_details(params[:location])
     forecast = OpenWeatherFacade.get_weather(coordinates[:lat], coordinates[:lng])
