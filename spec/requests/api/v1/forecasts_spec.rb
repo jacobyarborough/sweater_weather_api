@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Forecasts API", type: :request do
+RSpec.describe "Forecasts", type: :request do
   let(:location) { 'denver, co' }
 
   describe "GET /forecast" do
     before { get "/api/v1/forecast?location=#{location}" }
 
     context 'when the request is valid' do 
-      it 'returns the weather forecast for denver' do 
+      it 'returns the weather forecast for location' do 
         forecast = JSON.parse(response.body, symbolize_names: :true)[:data]
 
         expect(forecast).not_to be_empty
