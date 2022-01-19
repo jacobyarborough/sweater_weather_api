@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2022_01_19_001714) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "auth_token"
-    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
+    t.string "api_key"
+    t.index ["api_key"], name: "index_users_on_api_key", unique: true
   end
 
 end
