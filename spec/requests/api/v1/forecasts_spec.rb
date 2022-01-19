@@ -115,7 +115,7 @@ RSpec.describe "Forecasts", type: :request do
 
       it 'returns status code 404' do 
         expect(response).to have_http_status(404)
-      end 
+      end
 
       it 'returns a not found message' do 
         expect(response.body).to match(/{\"error\":\"Can't find location or location was entered incorrectly\",\"status\":404}/)
