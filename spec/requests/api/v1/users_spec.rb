@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  describe "GET /users" do
+  describe "POST /users" do
     let(:body) { {"email": "abc123@gmail.com", "password": "password", "password_confirmation": "password"} }
     let(:headers) { {"CONTENT_TYPE" => "application/json"} }
     before { post "/api/v1/users" ,headers: headers, params: body.to_json }
