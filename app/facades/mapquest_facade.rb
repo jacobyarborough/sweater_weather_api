@@ -9,7 +9,20 @@ class MapquestFacade
     end 
 
     def get_roadtrip(start_city, end_city)
-      MapquestService.get_roadtrip_details(start_city, end_city)
+      results = MapquestService.get_roadtrip_details(start_city, end_city)
+      if response[:info][:messages][0] != "We are unable to route with the given locations."
+        details = {}
+        details[:start_city] = start_city 
+        details[:end_city] = end_city 
+        details[:time] = results[:route][:formattedTime]
+        details 
+      else
+        details = {}
+        details[:start_city] = start_city 
+        details[:end_city] = end_city 
+        details[:time] = "Impossible Route"
+        details 
+      end
     end
   end 
 end 
