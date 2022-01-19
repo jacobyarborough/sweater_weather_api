@@ -3,5 +3,6 @@ class Api::V1::TripsController < ApplicationController
     travel = MapquestFacade.get_roadtrip(start_city, end_city)
     coordinates = MapquestFacade.get_location_details(end_city)
     forecast = OpenWeatherFacade.get_weather_at_time(coordinates[:lat], coordinates[:lng], travel.time.round())
+    roadtrip = Roadtrip.new(travel, forecast)
   end
 end 

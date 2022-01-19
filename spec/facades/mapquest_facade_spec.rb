@@ -16,11 +16,12 @@ RSpec.describe 'Mapquest Facade' do
   end 
 
   describe '.get_roadtrip' do 
+    let(:start_city) { 'denver, co' }
+    let(:end_city) { 'charlotte, nc' }
     it 'returns roadtrip details', :vcr do 
       response = MapquestFacade.get_roadtrip(start_city, end_city)
 
-      expect(response).to be_a(Hash)
-      # expect(response.count).to eq(2)
+      expect(response).to be_a(Trip)
     end 
   end 
 end 
