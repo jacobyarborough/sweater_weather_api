@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :password_digest, presence: :true
 
   has_secure_password
+  has_secure_token :auth_token
 end
