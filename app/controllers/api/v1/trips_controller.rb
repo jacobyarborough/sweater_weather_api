@@ -5,8 +5,8 @@ class Api::V1::TripsController < ApplicationController
     travel = MapquestFacade.get_roadtrip(user_params[:origin], user_params[:destination])
     coordinates = MapquestFacade.get_location_details(user_params[:destination])
     forecast = OpenWeatherFacade.get_weather_at_time(coordinates[:lat], coordinates[:lng], travel.travel_info[:time])
-    binding.pry
     roadtrip = Roadtrip.new(travel, forecast)
+    binding.pry
   end
 
   private 
