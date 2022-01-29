@@ -22,7 +22,7 @@ jobs:
       - image: circleci/ruby:2.7.2
         environment: 
           DATABASE_URL: postgresql://localhost:3000
-      - image: circleci/postgres11 
+      # - image: circleci/postgres11 
     parallelism: 2
     steps:
       - run: gem update
