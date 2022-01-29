@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run: gem update 
       - run: gem install bundler
-      - run: bundle install --path vendor/bundle
+      - run: bundle install
   test: 
     docker:
       - image: circleci/ruby:2.7.2
@@ -26,9 +26,9 @@ jobs:
     parallelism: 2
     steps:
       - checkout 
-      - run: gem update --system
+      - run: gem update
       - run: gem install bundler 
-      - run: bundle install --path vendor/bundle
+      - run: bundle install
       - run: sudo apt install postgresql-client
       - run: dockersize - wait tcp://localhost:3000 - timeout 1m
       - run: bundle exec rake db:create
