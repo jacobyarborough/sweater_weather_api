@@ -25,8 +25,8 @@ jobs:
       - run: gem update
       - run: gem install bundler 
       - run: bundle install
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      # - run: bundle exec rake db:create
+      # - run: bundle exec rake db:schema:load
       - run: 
           name: specs
           command: |
