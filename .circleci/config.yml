@@ -27,13 +27,7 @@ jobs:
       - run: bundle install
       # - run: bundle exec rake db:create
       # - run: bundle exec rake db:schema:load
-      - run: 
-          name: specs
-          command: |
-            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-            bundle exec rspec $TESTFILES --profile 10 --format RspecJunitFormatter --out ~/spec-timings/rspec.xml --format progress
-      - store_test_results:
-          path: ~/spec-timings
+      - run: bundle exec rspec 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
